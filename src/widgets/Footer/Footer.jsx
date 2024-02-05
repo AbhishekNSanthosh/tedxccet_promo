@@ -24,8 +24,8 @@ const Footer = () => {
                                         <a className={styles.number} >
                                             +91
                                         </a>
-                                        <a className={styles.number}>
-                                             {item?.number}
+                                        <a className={styles.number} href={`tel:+91${item?.number}`}>
+                                            {item?.number}
                                         </a>
                                     </div>
                                 </div>
