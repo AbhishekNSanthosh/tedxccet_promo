@@ -11,8 +11,8 @@ export const navItems = [
 
 export const contacts = [
     {
-        name: "Justin James",
-        number: "7907247909"
+        name: "Vani V Prakash",
+        number: "81295 49100"
     },
     {
         name: "Justin James",

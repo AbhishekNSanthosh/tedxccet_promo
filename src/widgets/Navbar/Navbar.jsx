@@ -12,9 +12,9 @@ const Navbar = () => {
   const handleScroll = () => {
     setScrollPosition(window.scrollY);
 
-    if (scrollPosition > 150 && !isNavbarFixed) {
+    if (scrollPosition > 100 && !isNavbarFixed) {
       setIsNavbarFixed(true);
-    } else if (scrollPosition <= 150 && isNavbarFixed) {
+    } else if (scrollPosition <= 100 && isNavbarFixed) {
       setIsNavbarFixed(false);
     }
   };
