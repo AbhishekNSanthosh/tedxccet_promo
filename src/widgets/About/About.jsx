@@ -6,7 +6,7 @@ const About= () => {
     {
       title: 'About TEDx',
       desc: 'TED, which stands for Technology, Entertainment, Design, is a global platform devoted to spreading ideas through short, powerful talks. Started in 1984 as a conference where technology, entertainment, and design converged, TED has since grown to encompass a vast array of topics and disciplines, all with the aim of sparking curiosity, inspiring change, and fostering connections among people worldwide. In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TED Talks video and live speakers combine to spark deep discussion and connection. These local, self-organized events are branded TEDx, where x = independently organized TED event. The TED Conference provides general guidance for the TEDx program, but individual TEDx events are self-organized.',
-      img: '/tedBg.png',
+      img: '/tedx.png',
     },
     {
       title: 'About Us',
