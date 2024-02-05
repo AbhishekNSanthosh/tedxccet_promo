@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    height: 13vh;
+    align-items: center;
+}
+
+.navbarWrap {
+    display: flex;
+    margin: 0 3rem;
+}
+
+.logo {
+    height: 3rem;
+}
