@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    /* border-top: 0.1px solid #31141936; */
+    background: linear-gradient(to bottom, #030000, #eb0027cc);
+}
+
+
+.title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    background: -webkit-linear-gradient(45deg, #cecece, #EB0028, #EB0028, rgb(255, 255, 255)) text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wrap {
+    margin: 3rem 3rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .wrap {
+        margin: 2rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 767px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+}
+
+.left {
+    flex: 6;
+    width: 100%;
+}
+
+.right {
+    flex: 6;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contactCol {
+    flex: 6;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightItem {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.name{
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}
+
+.number{
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.rightsRow{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.rights{
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+}

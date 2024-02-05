@@ -12,9 +12,9 @@ const Navbar = () => {
   const handleScroll = () => {
     setScrollPosition(window.scrollY);
 
-    if (scrollPosition > 100 && !isNavbarFixed) {
+    if (scrollPosition > 150 && !isNavbarFixed) {
       setIsNavbarFixed(true);
-    } else if (scrollPosition <= 100 && isNavbarFixed) {
+    } else if (scrollPosition <= 150 && isNavbarFixed) {
       setIsNavbarFixed(false);
     }
   };
@@ -36,9 +36,11 @@ const Navbar = () => {
           <img src="/logo.svg" alt="" className={styles.logo} />
         </div>
         <div className={styles.right}>
-          {navItems && navItems.map((item) => (
-            <div className={styles.navItem}>
-              <span className={styles.nav}>{item?.title}</span>
+          {navItems && navItems.map((item, index) => (
+            <div className={styles.navItem} key={index}>
+              <a href={item.link}>
+                <span className={styles.nav}>{item?.title}</span>
+              </a>
             </div>
           ))}
         </div>
