@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from '../../themes/navbar.module.css';
+import { navItems } from '@/common/utils/constants';
 
 const Navbar = () => {
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
@@ -31,7 +32,16 @@ const Navbar = () => {
   return (
     <div className={`${isNavbarFixed ? styles.containerVanish : styles.container}`}>
       <div className={styles.navbarWrap}>
-        <img src="/logo.svg" alt="" className={styles.logo} />
+        <div className={styles.left}>
+          <img src="/logo.svg" alt="" className={styles.logo} />
+        </div>
+        <div className={styles.right}>
+          {navItems && navItems.map((item) => (
+            <div className={styles.navItem}>
+              <span className={styles.nav}>{item?.title}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

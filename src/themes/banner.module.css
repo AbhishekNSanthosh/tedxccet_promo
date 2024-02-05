@@ -1,13 +1,40 @@
 .container {
     display: flex;
     align-items: center;
+    flex-direction: column;
     background-image: url('/public/bg.png');
-
     justify-content: center;
     width: 100%;
     height: 100vh;
+    gap: 2rem;
 }
 
 .banner {
     height: 10rem;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.comingsoon{
+    color: #EB0028;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+
+.comingsoonRed{
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.staytuned{
+    height: 3rem;
+    margin-top: 2rem;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../themes/about.module.css'
 
-const About= () => {
+const About = () => {
   const about = [
     {
       title: 'About TEDx',
