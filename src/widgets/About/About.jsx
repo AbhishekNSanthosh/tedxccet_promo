@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../themes/about.module.css';
 import { about } from '@/common/utils/constants';
+import Link from 'next/link'
 
 const About = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -48,6 +49,13 @@ const About = () => {
           </div>
         </div>
       ))}
+      <div className={styles.buttonRow}>
+        <Link target="_blank" href="https://www.ted.com/tedx/events/57144" passHref>
+          <button className={styles.button}>
+            Official website
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

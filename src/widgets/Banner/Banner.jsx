@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../../themes/banner.module.css'
-import Link from 'next/link'
 
 const Banner = () => {
   return (
@@ -12,13 +11,6 @@ const Banner = () => {
       </div>
       <div className={styles.row}>
         <img src="/staytuned.svg" alt="" className={styles.staytuned} />
-      </div>
-      <div className={styles.buttonRow}>
-        <Link target="_blank" href="https://www.ted.com/tedx/events/57144" passHref>
-          <button className={styles.button}>
-            Official website
-          </button>
-        </Link>
       </div>
     </div>
   )
