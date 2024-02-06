@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  console.log(isNavbarFixed)
   const handleScroll = () => {
     setScrollPosition(window.scrollY);
 
