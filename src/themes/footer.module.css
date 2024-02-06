@@ -35,6 +35,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    flex-direction: row-reverse;
     gap: 2rem;
     justify-content: space-between;
 }
@@ -42,7 +43,7 @@
 @media only screen and (max-width: 767px) {
     .row {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         width: 100%;
         align-items: center;
         gap: 2rem;
@@ -51,12 +52,12 @@
 }
 
 .left {
-    flex: 6;
+    flex: 8;
     width: 100%;
 }
 
 .right {
-    flex: 6;
+    flex: 4;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -67,8 +68,24 @@
     flex: 6;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.contactRow{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.contactRightCol {
+    flex: 6;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .rightItem {
@@ -78,24 +95,30 @@
     justify-content: center;
 }
 
-.name{
+.name {
     font-size: 1.3rem;
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+.role{
+    font-size: 1rem;
     margin-right: 0.5rem;
 }
 
-.number{
+.number {
     font-size: 1.2rem;
     margin-left: 0.5rem;
 }
 
-.rightsRow{
+.rightsRow {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
 }
 
-.rights{
+.rights {
     display: flex;
     font-weight: 500;
     align-items: center;

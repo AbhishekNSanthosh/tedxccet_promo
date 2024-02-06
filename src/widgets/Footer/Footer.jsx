@@ -6,8 +6,8 @@ const Footer = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wrap}>
-                <div className={styles.row}>
-                    <span className={styles.title}>Contact</span>
+                <div className={styles.topRow}>
+                    <span className={styles.title}>Contact Us</span>
                 </div>
                 <div className={styles.row}>
                     <div className={styles.left}>
@@ -18,9 +18,14 @@ const Footer = () => {
                             contacts.map((item, index) => (
                                 <div className={styles.rightItem} key={index}>
                                     <div className={styles.contactCol}>
-                                        <span className={styles.name}>{item?.name}</span>:
+                                        <div className={styles.contactRow}>
+                                            <span className={styles.name}>{item?.name}</span>:
+                                        </div>
+                                        <div className={styles.contactRow}>
+                                            <span className={styles.role}>({item?.role})</span>
+                                        </div>
                                     </div>
-                                    <div className={styles.contactCol}>
+                                    <div className={styles.contactRightCol}>
                                         <a className={styles.number} >
                                             +91
                                         </a>
@@ -34,7 +39,7 @@ const Footer = () => {
 
                 </div>
                 <div className={styles.rightsRow}>
-                    <span className={styles.rights}>All rights reserved ®. ©2024 - TEDXCCET</span>
+                    <span className={styles.rights}>All rights reserved ®. ©2024 - TEDxCCET</span>
                 </div>
             </div>
         </div>

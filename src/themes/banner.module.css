@@ -40,27 +40,55 @@
     gap: 1rem;
 }
 
-.comingsoon{
+.comingsoon {
     color: #EB0028;
     font-weight: 700;
     font-size: 1.7rem;
 }
 
 
-.comingsoonRed{
+.comingsoonRed {
     color: #fff;
     font-weight: 700;
     font-size: 1.7rem;
 }
 
-.staytuned{
+.staytuned {
     height: 3rem;
     margin-top: 2rem;
 }
 
 @media only screen and (max-width: 767px) {
-    .staytuned{
+    .staytuned {
         height: 2rem;
         margin-top: 4rem;
     }
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    border: 1px solid #EB0028;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: ease-in-out 0.05s;
+}
+
+.button:hover {
+    background-color: #EB0028;
+
+}
+
+.buttonRow{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
 }
