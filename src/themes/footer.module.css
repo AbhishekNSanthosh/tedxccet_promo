@@ -124,3 +124,13 @@
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 767px) {
+    .rights {
+        display: flex;
+        font-size: 0.8rem;
+        font-weight: 500;
+        align-items: center;
+        justify-content: center;
+    }
+}
