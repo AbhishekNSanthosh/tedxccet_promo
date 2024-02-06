@@ -16,6 +16,7 @@
         background: linear-gradient(to bottom, #030000, #1a1a1a28);
         width: 100%;
         align-items: center;
+        z-index: 9999;
         position: fixed;
         transition: all 0.5s ease-in-out;
     }
@@ -35,6 +36,7 @@
         height: 10vh;
         background: linear-gradient(to bottom, #030000, #030000);
         width: 100%;
+        z-index: 999;
         align-items: center;
         position: fixed;
         transition: all 0.5s ease-in-out;
