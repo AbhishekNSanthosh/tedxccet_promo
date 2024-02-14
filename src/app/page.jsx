@@ -8,19 +8,13 @@ import About from '@/widgets/About/About'
 import Footer from '@/widgets/Footer/Footer'
 
 const page = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Simulate an asynchronous operation (e.g., fetching data) during initial loading
-    const fetchData = async () => {
-      // Simulate an API call or any asynchronous operation
-      await new Promise((resolve) => setTimeout(resolve, 3100));
-
-      // Set loading to false once the data is loaded
+    setLoading(true)
+    setTimeout(() => {
       setLoading(false);
-    };
-
-    fetchData();
+    }, 4000);
   }, []);
   return (
     <>
