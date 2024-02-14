@@ -6,7 +6,6 @@ import Navbar from '@/widgets/Navbar/Navbar'
 import styles from './page.module.css'
 import About from '@/widgets/About/About'
 import Footer from '@/widgets/Footer/Footer'
-import Image from 'next/image'
 
 const page = () => {
   const [loading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ const page = () => {
     // Simulate an asynchronous operation (e.g., fetching data) during initial loading
     const fetchData = async () => {
       // Simulate an API call or any asynchronous operation
-      await new Promise((resolve) => setTimeout(resolve, 6000));
+      await new Promise((resolve) => setTimeout(resolve, 3100));
 
       // Set loading to false once the data is loaded
       setLoading(false);
@@ -27,7 +26,7 @@ const page = () => {
     <>
       {loading ?
         <div className={styles.splashContainer}>
-          <img src="/splash.gif" className={styles.splash} />
+          <img src="/sp.gif" className={styles.splash} />
         </div>
         :
         <div className={styles.container}>
