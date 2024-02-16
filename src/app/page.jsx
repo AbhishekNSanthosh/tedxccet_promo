@@ -14,13 +14,13 @@ const page = () => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false);
-    }, 4100);
+    }, 3000);
   }, []);
   return (
     <>
       {loading ?
         <div className={styles.splashContainer}>
-          <img src="/sp.gif" className={styles.splash} />
+          <img src="/splash.gif" className={styles.splash} />
         </div>
         :
         <div className={styles.container}>
