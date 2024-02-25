@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    /* background-color: black; */
+    /* padding: 0rem 5vw 15vh; */
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+  }
+
+.left {
+    flex: 6;
+    /* background-color: red; */
+    background: linear-gradient(to bottom, rgba(58, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url('/mobBg.jpg') center/cover no-repeat fixed;
+    padding: 2rem;
+    gap: 2vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .left {
+        flex: 6;
+        /* background-color: red; */
+        background: linear-gradient(to bottom, rgba(58, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url('/mobBg.jpg') center/cover no-repeat fixed;
+        padding: 2rem;
+        gap: 2vh;
+    }
+  }
+
+.right {
+    flex: 6;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 3vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .right {
+        flex: 6;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        gap: 3vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+  }
+
+.titleRow {
+    display: flex;
+    width: 100%;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.imgRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.img {
+    display: flex;
+    width: 30vw;
+}
+
+@media only screen and (max-width: 767px) {
+    .img {
+        display: flex;
+        width: 50vw;
+    }
+  }
+
+
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 10vw;
+}
+
+.desc {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.btn {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: red;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

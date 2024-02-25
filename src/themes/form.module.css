@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2rem 5vw 15vh;
+    gap: 7vh;
+}
+
+.head {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5vh;
+}
+
+.item {
+    display: flex;
+    /* width: 100%; */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .item {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1vh;
+    }
+  }
+
+.short{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 20rem;
+    height: 8vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .short{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 8vh;
+    }
+  }
+  
+
+.medium{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 30vw;
+    height: 8vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .medium{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 8vh;
+    }
+  }
+
+.long{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 50vw;
+    height: 8vh;
+}
+
+@media only screen and (max-width: 767px) {
+    .long{
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 8vh;
+    }
+  }
+
+.label{
+    font-size: 1rem;
+
+}
+
+.chooseitem{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.radioRow{
+    display: flex;
+    gap: 3vh;
+}
+
+.radioitem{
+    display: flex;
+    gap: 3vh;
+}
+
+.radio{
+    transform: scale(1.5);
+}
