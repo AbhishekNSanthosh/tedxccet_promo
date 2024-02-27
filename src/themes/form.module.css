@@ -139,3 +139,8 @@
     outline: none;
     border: none;
 }
+
+.error{
+    font-weight: 500;
+    color: red;
+}

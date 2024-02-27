@@ -23,6 +23,7 @@ export default function page() {
     const [terms, setTerms] = useState("");
     const [howDidYouCome, setHowDidYouCome] = useState("");
 
+    const [error, setError] = useState("");
 
     // console.log(name, mobNo, semester, email, isAttended,
     //     willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
@@ -44,8 +45,7 @@ export default function page() {
         }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         try {
             console.log("Form submitted");
 
@@ -69,6 +69,19 @@ export default function page() {
         }
     };
 
+    const handleCheck = (e) => {
+        e.preventDefault();
+        if (!name || !email || !mobNo || !semester || !isAttended || !willingToCommunicateWithYourFellow
+            || !timeOnTheInternet || !speakingSkills || !skills || !strongestSkill ||
+            !achievement || !achieveByAttending || !compromisesInAcademics || !handlePressure || team?.length === 0 ||
+            !priority || !terms || !howDidYouCome) {
+            setError("Please fill the required fields !!!")
+        } else {
+            setError("")
+            handleSubmit()
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.titileRow}>
@@ -79,7 +92,7 @@ export default function page() {
                     <span className={styles.label}>Name</span>
                     <input type="text" value={name} onChange={(e) => {
                         setName(e.target.value)
-                    }} className={styles.short} placeholder="Enter your name" />
+                    }} className={styles.short} placeholder="Enter your name. eg: Jacs J Jacob" />
                 </div>
 
                 <div className={styles.item}>
@@ -653,11 +666,15 @@ export default function page() {
                     </div>
                 </div>
             </div>
-
+            <div className={styles.row}>
+                <div className={styles.item}>
+                    <span className={styles.error}>{error && error}</span>
+                </div>
+            </div>
             <div className={styles.row}>
                 <div className={styles.item}>
                     <button onClick={(e) => {
-                        handleSubmit(e)
+                        handleCheck(e)
                     }} className={styles.submit}>Submit</button>
                 </div>
             </div>
