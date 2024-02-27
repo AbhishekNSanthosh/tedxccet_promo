@@ -24,11 +24,11 @@ export default function page() {
     const [howDidYouCome, setHowDidYouCome] = useState("");
 
 
-    console.log(name, mobNo, semester, email, isAttended,
-        willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
-        strongestSkill, achieveByAttending, achievement,
-        compromisesInAcademics,
-        handlePressure, team, priority, terms, howDidYouCome)
+    // console.log(name, mobNo, semester, email, isAttended,
+    //     willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
+    //     strongestSkill, achieveByAttending, achievement,
+    //     compromisesInAcademics,
+    //     handlePressure, team, priority, terms, howDidYouCome)
 
 
     const handleCheckboxChange = (value) => {
@@ -43,22 +43,24 @@ export default function page() {
             }
         }
     };
-    console.log(team)
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         try {
-console.log("called")
+            console.log("Form submitted");
+
+            const data = {
+                Name: name, Email: email, Mobile_no: mobNo, Semester: semester, Have_you_attended_any_TEDx_event_before: isAttended, How_did_you_come_to_know_about_TEDx: howDidYouCome, compromisesInAcademics,
+                willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
+                strongestSkill, achieveByAttending, achievement,
+                handlePressure, team, priority, terms,
+            };
+
+            console.log("Data to be sent:", data);
+
             const response = await axios.post(
                 "https://sheet.best/api/sheets/db4133c3-e210-41d4-a051-2f9302cd6d2f",
-                {
-                    name, mobNo, semester, email, isAttended,
-                    willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
-                    strongestSkill, achieveByAttending, achievement,
-                    compromisesInAcademics,
-                    handlePressure, team, priority, terms, howDidYouCome
-
-                }
+                data
             );
 
             console.log("Data sent successfully!", response.data);
@@ -66,9 +68,9 @@ console.log("called")
             console.error("Error sending data:", error);
         }
     };
+
     return (
         <div className={styles.container}>
-            <form action="">
             <div className={styles.titileRow}>
                 <span className={styles.head}>TEDxCCET Volunteer Registration Form</span>
             </div>
@@ -112,7 +114,7 @@ console.log("called")
                             type="radio"
                             name="wordOfMouth"
                             value="wordOfMouth"
-                            
+
                             onChange={(e) => {
                                 setHowDidYouCome(e.target.value)
                             }}
@@ -125,7 +127,7 @@ console.log("called")
                             type="radio"
                             name="wordOfMouth"
                             value="Friends"
-                            
+
                             onChange={(e) => {
                                 setHowDidYouCome(e.target.value)
                             }}
@@ -138,7 +140,7 @@ console.log("called")
                             type="radio"
                             name="wordOfMouth"
                             value="Social media"
-                            
+
                             onChange={(e) => {
                                 setHowDidYouCome(e.target.value)
                             }}
@@ -151,7 +153,7 @@ console.log("called")
                             type="radio"
                             name="wordOfMouth"
                             value="Just recently"
-                            
+
                             onChange={(e) => {
                                 setHowDidYouCome(e.target.value)
                             }}
@@ -171,7 +173,7 @@ console.log("called")
                         <input
                             type="radio"
                             name="attended"
-                            
+
                             value="Yes"
                             onChange={(e) => {
                                 setIsAttended(e.target.value)
@@ -188,7 +190,7 @@ console.log("called")
                             onChange={(e) => {
                                 setIsAttended(e.target.value)
                             }}
-                            
+
                             className={styles.radio}
                         />
                         No
@@ -205,7 +207,7 @@ console.log("called")
                             type="radio"
                             name="willing"
                             value="Yes"
-                            
+
                             onChange={(e) => {
                                 setIwillingToCommunicateWithYourFellow(e.target.value)
                             }}
@@ -218,7 +220,7 @@ console.log("called")
                             type="radio"
                             name="willing"
                             value="No"
-                            
+
                             onChange={(e) => {
                                 setIwillingToCommunicateWithYourFellow(e.target.value)
                             }}
@@ -238,7 +240,7 @@ console.log("called")
                             type="radio"
                             name="time"
                             value="1 or 2 hours"
-                            
+
                             onChange={(e) => {
                                 setTimeOnTheInternet(e.target.value)
                             }}
@@ -251,7 +253,7 @@ console.log("called")
                             type="radio"
                             name="time"
                             value="3 or 4 hours"
-                            
+
                             onChange={(e) => {
                                 setTimeOnTheInternet(e.target.value)
                             }}
@@ -264,7 +266,7 @@ console.log("called")
                             type="radio"
                             name="time"
                             value="5 hours+"
-                            
+
                             onChange={(e) => {
                                 setTimeOnTheInternet(e.target.value)
                             }}
@@ -277,7 +279,7 @@ console.log("called")
                             type="radio"
                             name="time"
                             value="24 hours"
-                            
+
                             onChange={(e) => {
                                 setTimeOnTheInternet(e.target.value)
                             }}
@@ -297,7 +299,7 @@ console.log("called")
                             type="radio"
                             name="tedxOption"
                             value="Fluent"
-                            
+
                             onChange={(e) => {
                                 setSpeakingSkills(e.target.value)
                             }}
@@ -310,7 +312,7 @@ console.log("called")
                             type="radio"
                             name="tedxOption"
                             value="Good"
-                            
+
                             onChange={(e) => {
                                 setSpeakingSkills(e.target.value)
                             }}
@@ -323,7 +325,7 @@ console.log("called")
                             type="radio"
                             name="tedxOption"
                             value="Average"
-                            
+
                             onChange={(e) => {
                                 setSpeakingSkills(e.target.value)
                             }}
@@ -336,7 +338,7 @@ console.log("called")
                             type="radio"
                             name="tedxOption"
                             value="In progress"
-                            
+
                             onChange={(e) => {
                                 setSpeakingSkills(e.target.value)
                             }}
@@ -390,7 +392,7 @@ console.log("called")
                             type="radio"
                             name="compromise"
                             value="Yes"
-                            
+
                             onChange={(e) => {
                                 setCompromisesInAcademics(e.target.value)
                             }}
@@ -403,7 +405,7 @@ console.log("called")
                             type="radio"
                             name="compromise"
                             value="No"
-                            
+
                             onChange={(e) => {
                                 setCompromisesInAcademics(e.target.value)
                             }}
@@ -423,7 +425,7 @@ console.log("called")
                             type="radio"
                             name="pressure"
                             value="Yes"
-                            
+
                             onChange={(e) => {
                                 setHandlePressure(e.target.value)
                             }}
@@ -436,7 +438,7 @@ console.log("called")
                             type="radio"
                             name="pressure"
                             value="No"
-                            
+
                             onChange={(e) => {
                                 setHandlePressure(e.target.value)
                             }}
@@ -456,7 +458,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Curation_Team"
-                            
+                            checked={team?.includes("Curation_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -469,7 +471,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Technical_Team"
-                            
+                            checked={team?.includes("Technical_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -481,8 +483,8 @@ console.log("called")
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value=" Design_Team"
-                            
+                            value="Design_Team"
+                            checked={team?.includes("Design_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -495,7 +497,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Media_and_Productions_Team"
-                            
+                            checked={team?.includes("Media_and_Productions_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -508,7 +510,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Sponsorship_management_Team"
-                            
+                            checked={team?.includes("Sponsorship_management_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -521,7 +523,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Financial_Team"
-                            
+                            checked={team?.includes("Financial_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -534,7 +536,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Event_management_Team"
-                            
+                            checked={team?.includes("Event_management_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -547,7 +549,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Communications_and_Editorial_Team"
-                            
+                            checked={team?.includes("Communications_and_Editorial_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -560,7 +562,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="General_Volunteer_Team"
-                            
+                            checked={team?.includes("General_Volunteer_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -573,7 +575,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Hospitality_Team"
-                            
+                            checked={team?.includes("Hospitality_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -586,7 +588,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Reception_Team"
-                            
+                            checked={team?.includes("Reception_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -599,7 +601,7 @@ console.log("called")
                             type="checkbox"
                             name="tedxOption"
                             value="Marketing_Team"
-                            
+                            checked={team?.includes("Marketing_Team")}
                             className={styles.radio}
                             onChange={(e) => {
                                 handleCheckboxChange(e.target.value)
@@ -628,7 +630,7 @@ console.log("called")
                             type="radio"
                             name="understand"
                             value="Yes"
-                            
+
                             onChange={(e) => {
                                 setTerms(e.target.value)
                             }}
@@ -641,7 +643,7 @@ console.log("called")
                             type="radio"
                             name="understand"
                             value="No"
-                            
+
                             onChange={(e) => {
                                 setTerms(e.target.value)
                             }}
@@ -654,12 +656,11 @@ console.log("called")
 
             <div className={styles.row}>
                 <div className={styles.item}>
-                    <button onClick={() => {
+                    <button onClick={(e) => {
                         handleSubmit(e)
                     }} className={styles.submit}>Submit</button>
                 </div>
             </div>
-            </form>
         </div>
     )
 }
