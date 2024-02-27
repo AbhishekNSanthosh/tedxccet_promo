@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import styles from '../../themes/form.module.css'
+import axios from 'axios'
 export default function page() {
     const [name, setName] = useState("");
     const [mobNo, setMobNo] = useState("");
@@ -20,21 +21,54 @@ export default function page() {
     const [team, setTeam] = useState([]);
     const [priority, setPriority] = useState("");
     const [terms, setTerms] = useState("");
+    const [howDidYouCome, setHowDidYouCome] = useState("");
+
+
+    console.log(name, mobNo, semester, email, isAttended,
+        willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
+        strongestSkill, achieveByAttending, achievement,
+        compromisesInAcademics,
+        handlePressure, team, priority, terms, howDidYouCome)
 
 
     const handleCheckboxChange = (value) => {
+        console.log(value)
         if (team.includes(value)) {
-          // If already selected, remove it from the array
-          setTeam(team.filter((team) => team !== value));
+            // If already selected, remove it from the array
+            setTeam(team.filter((team) => team !== value));
         } else {
-          // If not selected, check if the limit has been reached
-          if (team.length < 3) {
-            setTeam([...team, value]);
-          }
+            // If not selected, check if the limit has been reached
+            if (team.length < 3) {
+                setTeam([...team, value]);
+            }
         }
-      };
+    };
+    console.log(team)
+
+    const handleSubmit = async (e) => {
+        // e.preventDefault();
+        try {
+console.log("called")
+            const response = await axios.post(
+                "https://sheet.best/api/sheets/db4133c3-e210-41d4-a051-2f9302cd6d2f",
+                {
+                    name, mobNo, semester, email, isAttended,
+                    willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
+                    strongestSkill, achieveByAttending, achievement,
+                    compromisesInAcademics,
+                    handlePressure, team, priority, terms, howDidYouCome
+
+                }
+            );
+
+            console.log("Data sent successfully!", response.data);
+        } catch (error) {
+            console.error("Error sending data:", error);
+        }
+    };
     return (
         <div className={styles.container}>
+            <form action="">
             <div className={styles.titileRow}>
                 <span className={styles.head}>TEDxCCET Volunteer Registration Form</span>
             </div>
@@ -48,17 +82,23 @@ export default function page() {
 
                 <div className={styles.item}>
                     <span className={styles.label}>Phone no.</span>
-                    <input type="text" className={styles.short} placeholder="Enter your mobile no." />
+                    <input onChange={(e) => {
+                        setMobNo(e.target.value)
+                    }} type="text" className={styles.short} placeholder="Enter your mobile no." />
                 </div>
 
                 <div className={styles.item}>
                     <span className={styles.label}>Semester</span>
-                    <input type="text" className={styles.short} placeholder="Enter your semester" />
+                    <input onChange={(e) => {
+                        setSemester(e.target.value)
+                    }} type="text" className={styles.short} placeholder="Enter your semester" />
                 </div>
 
                 <div className={styles.item}>
                     <span className={styles.label}>Email</span>
-                    <input type="text" className={styles.short} placeholder="Enter your Email" />
+                    <input onChange={(e) => {
+                        setEmail(e.target.value)
+                    }} type="text" className={styles.short} placeholder="Enter your Email" />
                 </div>
 
             </div>
@@ -70,9 +110,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
+                            name="wordOfMouth"
                             value="wordOfMouth"
-                            required
+                            
+                            onChange={(e) => {
+                                setHowDidYouCome(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Word of mouth
@@ -80,9 +123,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="wordOfMouth"
+                            value="Friends"
+                            
+                            onChange={(e) => {
+                                setHowDidYouCome(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Friends
@@ -90,9 +136,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="wordOfMouth"
+                            value="Social media"
+                            
+                            onChange={(e) => {
+                                setHowDidYouCome(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Social media
@@ -100,9 +149,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="wordOfMouth"
+                            value="Just recently"
+                            
+                            onChange={(e) => {
+                                setHowDidYouCome(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Just recently
@@ -118,9 +170,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="attended"
+                            
+                            value="Yes"
+                            onChange={(e) => {
+                                setIsAttended(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Yes
@@ -128,9 +183,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="attended"
+                            value="No"
+                            onChange={(e) => {
+                                setIsAttended(e.target.value)
+                            }}
+                            
                             className={styles.radio}
                         />
                         No
@@ -145,9 +203,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="willing"
+                            value="Yes"
+                            
+                            onChange={(e) => {
+                                setIwillingToCommunicateWithYourFellow(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Yes
@@ -155,9 +216,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="willing"
+                            value="No"
+                            
+                            onChange={(e) => {
+                                setIwillingToCommunicateWithYourFellow(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         No
@@ -172,9 +236,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="time"
+                            value="1 or 2 hours"
+                            
+                            onChange={(e) => {
+                                setTimeOnTheInternet(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         1 or 2 hours
@@ -182,9 +249,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="time"
+                            value="3 or 4 hours"
+                            
+                            onChange={(e) => {
+                                setTimeOnTheInternet(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         3 or 4 hours
@@ -192,9 +262,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="time"
+                            value="5 hours+"
+                            
+                            onChange={(e) => {
+                                setTimeOnTheInternet(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         5 hours+
@@ -202,9 +275,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="time"
+                            value="24 hours"
+                            
+                            onChange={(e) => {
+                                setTimeOnTheInternet(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         24 hours
@@ -220,8 +296,11 @@ export default function page() {
                         <input
                             type="radio"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Fluent"
+                            
+                            onChange={(e) => {
+                                setSpeakingSkills(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Fluent
@@ -230,8 +309,11 @@ export default function page() {
                         <input
                             type="radio"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Good"
+                            
+                            onChange={(e) => {
+                                setSpeakingSkills(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Good
@@ -240,8 +322,11 @@ export default function page() {
                         <input
                             type="radio"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Average"
+                            
+                            onChange={(e) => {
+                                setSpeakingSkills(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Average
@@ -250,8 +335,11 @@ export default function page() {
                         <input
                             type="radio"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="In progress"
+                            
+                            onChange={(e) => {
+                                setSpeakingSkills(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         In progress
@@ -262,11 +350,15 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Do you have any talents or skills? If so list them</span>
-                    <input type="text" className={styles.medium} placeholder="Enter your skills" />
+                    <input type="text" className={styles.medium} placeholder="Enter your skills" onChange={(e) => {
+                        setSkills(e.target.value)
+                    }} />
                 </div>
                 <div className={styles.item}>
                     <span className={styles.label}>Which one is your strongest skill?</span>
-                    <input type="text" className={styles.short} placeholder="Enter your strongest skill" />
+                    <input type="text" className={styles.short} placeholder="Enter your strongest skill" onChange={(e) => {
+                        setstrongestSkill(e.target.value)
+                    }} />
                 </div>
 
             </div>
@@ -274,27 +366,34 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Do you have any past achievements? eg: from school or college? List them out if you do.</span>
-                    <input type="text" className={styles.long} placeholder="Enter your past achievements" />
+                    <input type="text" className={styles.long} placeholder="Enter your past achievements" onChange={(e) => {
+                        setAchievement(e.target.value)
+                    }} />
                 </div>
             </div>
 
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>What do you hope to achieve by attending this event as a volunteer?</span>
-                    <input type="text" className={styles.long} placeholder="Enter your answer" />
+                    <input type="text" className={styles.long} placeholder="Enter your answer" onChange={(e) => {
+                        setAchieveByAttending(e.target.value)
+                    }} />
                 </div>
             </div>
 
             <div className={styles.radiorow}>
                 <div className={styles.chooseitem}>
-                    <span className={styles.label}>As a volunteer, you may have to make slight compromises in academics in order to get things done when required. Are you willing to do so?</span>
+                    <span className={styles.label}>As a volunteer, you may have to make slight compromises in academics in order to get things done when . Are you willing to do so?</span>
 
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="compromise"
+                            value="Yes"
+                            
+                            onChange={(e) => {
+                                setCompromisesInAcademics(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Yes
@@ -302,9 +401,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="compromise"
+                            value="No"
+                            
+                            onChange={(e) => {
+                                setCompromisesInAcademics(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         No
@@ -319,9 +421,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="pressure"
+                            value="Yes"
+                            
+                            onChange={(e) => {
+                                setHandlePressure(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Yes
@@ -329,9 +434,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="pressure"
+                            value="No"
+                            
+                            onChange={(e) => {
+                                setHandlePressure(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         No
@@ -347,9 +455,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Curation_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         1. Curation Team
                     </div>
@@ -357,9 +468,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Technical_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         2. Technical Team
                     </div>
@@ -367,9 +481,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value=" Design_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         3. Design Team
                     </div>
@@ -377,9 +494,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Media_and_Productions_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         4. Media and Productions Team
                     </div>
@@ -387,9 +507,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Sponsorship_management_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         5. Sponsorship management Team
                     </div>
@@ -397,9 +520,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Financial_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         6. Financial Team
                     </div>
@@ -407,9 +533,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Event_management_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         7. Event management Team
                     </div>
@@ -417,9 +546,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Communications_and_Editorial_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         8. Communications and Editorial Team
                     </div>
@@ -427,9 +559,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="General_Volunteer_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         9. General Volunteer Team
                     </div>
@@ -437,9 +572,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Hospitality_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         10. Hospitality Team
                     </div>
@@ -447,9 +585,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Reception_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         11. Reception Team
                     </div>
@@ -457,9 +598,12 @@ export default function page() {
                         <input
                             type="checkbox"
                             name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            value="Marketing_Team"
+                            
                             className={styles.radio}
+                            onChange={(e) => {
+                                handleCheckboxChange(e.target.value)
+                            }}
                         />
                         12. Marketing Team
                     </div>
@@ -469,7 +613,9 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Prioritize the choice according to the number. (eg: reception, curator, budget management = 11,1,6)</span>
-                    <input type="text" className={styles.long} placeholder="Arrange your priority" />
+                    <input type="text" className={styles.long} placeholder="Arrange your priority" onChange={(e) => {
+                        setPriority(e.target.value)
+                    }} />
                 </div>
             </div>
 
@@ -480,9 +626,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="understand"
+                            value="Yes"
+                            
+                            onChange={(e) => {
+                                setTerms(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         Yes
@@ -490,9 +639,12 @@ export default function page() {
                     <div className={styles.radioitem}>
                         <input
                             type="radio"
-                            name="tedxOption"
-                            value="wordOfMouth"
-                            required
+                            name="understand"
+                            value="No"
+                            
+                            onChange={(e) => {
+                                setTerms(e.target.value)
+                            }}
                             className={styles.radio}
                         />
                         No
@@ -502,10 +654,12 @@ export default function page() {
 
             <div className={styles.row}>
                 <div className={styles.item}>
-                    <button className={styles.submit}>Submit</button>
+                    <button onClick={() => {
+                        handleSubmit(e)
+                    }} className={styles.submit}>Submit</button>
                 </div>
             </div>
-
+            </form>
         </div>
     )
 }
