@@ -1,6 +1,38 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import styles from '../../themes/form.module.css'
 export default function page() {
+    const [name, setName] = useState("");
+    const [mobNo, setMobNo] = useState("");
+    const [semester, setSemester] = useState("");
+    const [email, setEmail] = useState("");
+    const [isAttended, setIsAttended] = useState("");
+    const [willingToCommunicateWithYourFellow, setIwillingToCommunicateWithYourFellow] = useState("");
+    const [timeOnTheInternet, setTimeOnTheInternet] = useState("");
+    const [speakingSkills, setSpeakingSkills] = useState("");
+    const [skills, setSkills] = useState("");
+    const [strongestSkill, setstrongestSkill] = useState("");
+    const [achievement, setAchievement] = useState("");
+    const [achieveByAttending, setAchieveByAttending] = useState("");
+    const [compromisesInAcademics, setCompromisesInAcademics] = useState("");
+    const [handlePressure, setHandlePressure] = useState("");
+    const [team, setTeam] = useState([]);
+    const [priority, setPriority] = useState("");
+    const [terms, setTerms] = useState("");
+
+
+    const handleCheckboxChange = (value) => {
+        if (team.includes(value)) {
+          // If already selected, remove it from the array
+          setTeam(team.filter((team) => team !== value));
+        } else {
+          // If not selected, check if the limit has been reached
+          if (team.length < 3) {
+            setTeam([...team, value]);
+          }
+        }
+      };
     return (
         <div className={styles.container}>
             <div className={styles.titileRow}>
@@ -9,7 +41,9 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Name</span>
-                    <input type="text" className={styles.short} placeholder="Enter your name" />
+                    <input type="text" value={name} onChange={(e) => {
+                        setName(e.target.value)
+                    }} className={styles.short} placeholder="Enter your name" />
                 </div>
 
                 <div className={styles.item}>
@@ -228,11 +262,11 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Do you have any talents or skills? If so list them</span>
-                    <input type="text" className={styles.medium} placeholder="Enter your name" />
+                    <input type="text" className={styles.medium} placeholder="Enter your skills" />
                 </div>
                 <div className={styles.item}>
                     <span className={styles.label}>Which one is your strongest skill?</span>
-                    <input type="text" className={styles.short} placeholder="Enter your name" />
+                    <input type="text" className={styles.short} placeholder="Enter your strongest skill" />
                 </div>
 
             </div>
@@ -240,14 +274,14 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Do you have any past achievements? eg: from school or college? List them out if you do.</span>
-                    <input type="text" className={styles.long} placeholder="Enter your name" />
+                    <input type="text" className={styles.long} placeholder="Enter your past achievements" />
                 </div>
             </div>
 
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>What do you hope to achieve by attending this event as a volunteer?</span>
-                    <input type="text" className={styles.long} placeholder="Enter your name" />
+                    <input type="text" className={styles.long} placeholder="Enter your answer" />
                 </div>
             </div>
 
@@ -435,7 +469,7 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Prioritize the choice according to the number. (eg: reception, curator, budget management = 11,1,6)</span>
-                    <input type="text" className={styles.long} placeholder="Enter your name" />
+                    <input type="text" className={styles.long} placeholder="Arrange your priority" />
                 </div>
             </div>
 
@@ -463,6 +497,12 @@ export default function page() {
                         />
                         No
                     </div>
+                </div>
+            </div>
+
+            <div className={styles.row}>
+                <div className={styles.item}>
+                    <button className={styles.submit}>Submit</button>
                 </div>
             </div>
 

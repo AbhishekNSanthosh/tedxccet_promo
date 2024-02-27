@@ -8,14 +8,23 @@ export default function page() {
         <div className={styles.container}>
             <div className={styles.left}>
                 <div className={styles.titleRow}>
-                    <span className={styles.title}>Call for volunteers</span>
+                    <span className={styles.title}><i>Call for volunteers</i></span>
                 </div>
                 <div className={styles.imgRow}>
-                    <Image src="/x.svg" height={500} width={500} className={styles.img} />
+                    <Image src="/x.svg" height={400} width={500} className={styles.img} />
                 </div>
                 <div className={styles.row}>
-                    <>contact</>
-                    <Image src="/logo.svg" height={100} width={500} className={styles.logo} />
+                    <div className={styles.contactBox}>
+                        <div className={styles.contactRow}>
+                            <span className={styles.contactName}>JUSTIN</span>
+                            <span className={styles.contactNumber}>+91 80755 12624 </span>
+                        </div>
+                        <div className={styles.contactRow}>
+                            <span className={styles.contactName}>ARAVIND</span>
+                            <span className={styles.contactNumber}>+91 94460 29321</span>
+                        </div>
+                    </div>
+                    <Image src="/logo.svg" height={150} width={500} className={styles.logo} />
                 </div>
             </div>
             <div className={styles.right}>
