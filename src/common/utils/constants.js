@@ -4,6 +4,10 @@ export const navItems = [
         link: "#about"
     },
     {
+        title: "Volunteer Registration",
+        link: "/volunteer-registration"
+    },
+    {
         title: "Contact",
         link: "#contact"
     },

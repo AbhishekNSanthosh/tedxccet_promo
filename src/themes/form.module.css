@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    background:linear-gradient(to bottom, #07000091, #000000cc), url('/background.svg') center/cover no-repeat fixed;
     flex-direction: column;
     min-height: 100vh;
     width: 100vw;
@@ -38,9 +39,9 @@
         justify-content: flex-start;
         gap: 1vh;
     }
-  }
+}
 
-.short{
+.short {
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -50,7 +51,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .short{
+    .short {
         padding: 10px;
         border-radius: 10px;
         border: none;
@@ -58,10 +59,10 @@
         width: 100%;
         height: 8vh;
     }
-  }
-  
+}
 
-.medium{
+
+.medium {
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -71,7 +72,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .medium{
+    .medium {
         padding: 10px;
         border-radius: 10px;
         border: none;
@@ -79,9 +80,9 @@
         width: 100%;
         height: 8vh;
     }
-  }
+}
 
-.long{
+.long {
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -91,7 +92,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .long{
+    .long {
         padding: 10px;
         border-radius: 10px;
         border: none;
@@ -99,34 +100,34 @@
         width: 100%;
         height: 8vh;
     }
-  }
+}
 
-.label{
+.label {
     font-size: 1rem;
 
 }
 
-.chooseitem{
+.chooseitem {
     display: flex;
     flex-direction: column;
     gap: 3vh;
 }
 
-.radioRow{
+.radioRow {
     display: flex;
     gap: 3vh;
 }
 
-.radioitem{
+.radioitem {
     display: flex;
     gap: 3vh;
 }
 
-.radio{
+.radio {
     transform: scale(1.5);
 }
 
-.submit{
+.submit {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +141,7 @@
     border: none;
 }
 
-.error{
+.error {
     font-weight: 500;
     color: red;
 }

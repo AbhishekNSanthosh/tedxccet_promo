@@ -1,9 +1,14 @@
-"use client"
+'use client'
 
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import styles from '../../themes/form.module.css'
 import axios from 'axios'
+import toast from 'react-hot-toast';
+
 export default function page() {
+    const router = useRouter();
+
     const [name, setName] = useState("");
     const [mobNo, setMobNo] = useState("");
     const [semester, setSemester] = useState("");
@@ -62,7 +67,13 @@ export default function page() {
                 "https://sheet.best/api/sheets/db4133c3-e210-41d4-a051-2f9302cd6d2f",
                 data
             );
+            toast.success("Submitted successfully", {
+                position: "bottom-center",
+            })
 
+            setTimeout(() => {
+                router.push('/')
+            }, 500);
             console.log("Data sent successfully!", response.data);
         } catch (error) {
             console.error("Error sending data:", error);
@@ -76,6 +87,9 @@ export default function page() {
             !achievement || !achieveByAttending || !compromisesInAcademics || !handlePressure || team?.length === 0 ||
             !priority || !terms || !howDidYouCome) {
             setError("Please fill the required fields !!!")
+            toast.error("Please fill the required fields !!!", {
+                position: "top-center",
+            })
         } else {
             setError("")
             handleSubmit()
@@ -92,7 +106,7 @@ export default function page() {
                     <span className={styles.label}>Name</span>
                     <input type="text" value={name} onChange={(e) => {
                         setName(e.target.value)
-                    }} className={styles.short} placeholder="Enter your name. eg: Jacs J Jacob" />
+                    }} className={styles.short} placeholder="Enter your name" />
                 </div>
 
                 <div className={styles.item}>
