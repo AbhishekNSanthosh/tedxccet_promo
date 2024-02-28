@@ -107,7 +107,7 @@ export default function page() {
                     <span className={styles.label}>Name</span>
                     <input type="text" value={name} onChange={(e) => {
                         setName(e.target.value)
-                    }} className={styles.short} placeholder="Enter your name" />
+                    }} className={styles.short} placeholder="Enter your name" autocomplete="off"/>
                 </div>
 
                 <div className={styles.item}>
