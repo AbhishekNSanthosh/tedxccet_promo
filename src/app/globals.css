@@ -22,14 +22,15 @@ Kerala Indiahover {
 html,
 body {
   max-width: 100vw;
-  color: rgb(var(--foreground-rgb));
   overflow-x: hidden;
+  max-width: 100vw;
+  color: #fff;
 }
 
 @media only screen and (max-width: 767px) {
   body {
     max-width: 100vw;
-    color: rgb(var(--foreground-rgb));
+    color: #fff;
     overflow-x: hidden;
   }
 }
