@@ -14,8 +14,7 @@
   border-radius: 5px;
 }
 
-*::-webkit-scrollbar-track:Alappuzha,
-Kerala Indiahover {
+*::-webkit-scrollbar-track {
   background-color: rgba(31, 31, 31, 0.486)
 }
 
@@ -34,6 +33,78 @@ body {
     color: #fff;
     overflow-x: hidden;
   }
+}
+
+body input {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.63);
+}
+
+body input:placeholder {
+  color: #fff;
+}
+
+body input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  /* Set border color for unchecked state */
+  border-radius: 50%;
+  /* Make it circular */
+  width: 15px;
+  /* Set width */
+  height: 15px;
+  /* Set height */
+  outline: none;
+  /* Remove default focus outline */
+}
+
+/* Style for checked radio button */
+body input[type="radio"]:checked {
+  /* border-color: red; */
+  /* Set border color for checked state */
+  background-color: red;
+  /* Set background color for checked state */
+}
+
+body input[type="checkbox"]:checked {
+  /* border-color: red; */
+  /* Set border color for checked state */
+  background-color: red;
+  /* Set background color for checked state */
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  border-radius: 3px; /* Set border radius for unchecked state */
+  width: 17px; /* Set width */
+  height: 17px; /* Set height */
+  outline: none; /* Remove default focus outline */
+  position: relative; /* Positioning for pseudo-element */
+}
+
+/* Style for checked checkbox */
+input[type="checkbox"]:checked {
+  border-color: red; /* Set border color for checked state */
+  background-color: red; /* Set background color for checked state */
+}
+
+/* Style for the tick mark */
+input[type="checkbox"]:checked::before {
+  content: '\2713'; 
+  font-weight: 800;
+  font-size: 16px; /* Set the font size */
+  color: black; /* Set the color of the checkmark */
+  position: absolute; /* Position the checkmark */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the checkmark precisely */
 }
 
 a {

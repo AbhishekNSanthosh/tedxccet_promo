@@ -31,9 +31,11 @@ export default function page() {
                 <span className={styles.desc}>
                     TEDxCCET Volunteer Registration Form
                 </span>
-                <button className={styles.btn}>
-                    <Link href="/reg-form">Proceed</Link>
-                </button>
+                <Link href="/reg-form">
+                    <button href="/reg-form" className={styles.btn}>
+                        Proceed
+                    </button>
+                </Link>
             </div>
         </div>
     )

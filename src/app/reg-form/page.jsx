@@ -113,7 +113,7 @@ export default function page() {
                     <span className={styles.label}>Phone no.</span>
                     <input onChange={(e) => {
                         setMobNo(e.target.value)
-                    }} type="text" className={styles.short} placeholder="Enter your mobile no." />
+                    }} type="text" className={styles.short} maxLength="10" placeholder="Enter your mobile no." />
                 </div>
 
                 <div className={styles.item}>
