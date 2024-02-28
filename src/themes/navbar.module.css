@@ -1,7 +1,9 @@
 .container {
     display: flex;
+    flex-direction: column;
     height: 13vh;
-    background: linear-gradient(to bottom, #030000, #1a1a1a28);
+    padding: 1rem;
+    background: linear-gradient(to bottom, #000000, #1a1a1a2d);
     width: 100%;
     align-items: center;
     position: fixed;
@@ -12,9 +14,11 @@
 @media only screen and (max-width: 767px) {
     .container {
         display: flex;
-        height: 10vh;
+        min-height: 10vh;
+        height: auto;
         background: linear-gradient(to bottom, #030000, #1a1a1a28);
         width: 100%;
+        padding: 1rem;
         align-items: center;
         z-index: 9999;
         position: fixed;
@@ -24,6 +28,7 @@
 
 .containerVanish {
     display: flex;
+    flex-direction: column;
     height: 13vh;
     transition: all 0.5s ease-in-out;
     align-items: center;
@@ -33,7 +38,10 @@
 @media only screen and (max-width: 767px) {
     .containerVanish {
         display: flex;
-        height: 10vh;
+        flex-direction: column;
+        min-height: 13vh;
+        height: auto;
+
         background: linear-gradient(to bottom, #030000, #030000);
         width: 100%;
         z-index: 999;
@@ -106,9 +114,32 @@
     }
 }
 
+.rightMob {
+    display: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+    .rightMob {
+        display: block;
+        flex: 1;
+    }
+}
+
 .nav {
     display: flex;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
+}
+
+.drawer {
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
 }
