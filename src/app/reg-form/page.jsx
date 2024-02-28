@@ -125,7 +125,7 @@ export default function page() {
                     <span className={styles.label}>Phone no.</span>
                     <input onChange={(e) => {
                         setMobNo(e.target.value)
-                    }} type="number" inputmode="numeric" pattern="[0-9]*" className={styles.short} maxlength="10" placeholder="Enter your mobile no." />
+                    }} type="number" inputMode="numeric" pattern="[0-9]*" className={styles.short} maxLength="10" placeholder="Enter your mobile no." />
                 </div>
 
                 <div className={styles.item}>

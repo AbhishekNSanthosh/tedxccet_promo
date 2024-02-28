@@ -13,6 +13,13 @@
     font-weight: 600;
 }
 
+@media only screen and (max-width: 767px) {
+    .head {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
