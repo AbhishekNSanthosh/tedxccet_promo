@@ -30,6 +30,7 @@ export default function page() {
 
     const [error, setError] = useState("");
 
+
     // console.log(name, mobNo, semester, email, isAttended,
     //     willingToCommunicateWithYourFellow, timeOnTheInternet, speakingSkills, skills,
     //     strongestSkill, achieveByAttending, achievement,
@@ -70,7 +71,7 @@ export default function page() {
             toast.success("Submitted successfully", {
                 position: "bottom-center",
             })
-
+            localStorage.setItem("status", "submitted")
             setTimeout(() => {
                 router.push('/')
             }, 500);
@@ -113,7 +114,7 @@ export default function page() {
                     <span className={styles.label}>Phone no.</span>
                     <input onChange={(e) => {
                         setMobNo(e.target.value)
-                    }} type="text" className={styles.short} maxLength="10" placeholder="Enter your mobile no." />
+                    }} type="number" inputmode="numeric" pattern="[0-9]*" className={styles.short} maxlength="10" placeholder="Enter your mobile no." />
                 </div>
 
                 <div className={styles.item}>
@@ -127,7 +128,7 @@ export default function page() {
                     <span className={styles.label}>Email</span>
                     <input onChange={(e) => {
                         setEmail(e.target.value)
-                    }} type="text" className={styles.short} placeholder="Enter your Email" />
+                    }} type="email" className={styles.short} placeholder="Enter your Email" />
                 </div>
 
             </div>
