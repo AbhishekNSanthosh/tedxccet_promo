@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../../themes/form.module.css'
 import axios from 'axios'
 import toast from 'react-hot-toast';
@@ -97,6 +97,17 @@ export default function page() {
         }
     }
 
+    useEffect(() => {
+        const status = localStorage.getItem("status")
+        if (status === "submitted") {
+            router.push('/');
+            toast.error("You have already submitted.", {
+                position: "bottom-center",
+            })
+        }
+    }, [])
+
+
     return (
         <div className={styles.container}>
             <div className={styles.titileRow}>
@@ -107,7 +118,7 @@ export default function page() {
                     <span className={styles.label}>Name</span>
                     <input type="text" value={name} onChange={(e) => {
                         setName(e.target.value)
-                    }} className={styles.short} placeholder="Enter your name" autocomplete="off"/>
+                    }} className={styles.short} placeholder="Enter your name" autocomplete="off" />
                 </div>
 
                 <div className={styles.item}>
