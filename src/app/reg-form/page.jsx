@@ -118,7 +118,7 @@ export default function page() {
                     <span className={styles.label}>Name</span>
                     <input type="text" value={name} onChange={(e) => {
                         setName(e.target.value)
-                    }} className={styles.short} placeholder="Enter your name" autocomplete="off" />
+                    }} className={styles.short} placeholder="Enter your name" autoComplete="off" />
                 </div>
 
                 <div className={styles.item}>
@@ -702,6 +702,12 @@ export default function page() {
                     <button onClick={(e) => {
                         handleCheck(e)
                     }} className={styles.submit}>Submit</button>
+                </div>
+            </div>
+
+            <div className={styles.note}>
+                <div className={styles.item}>
+                    <span className={styles.help}>For any technical assistance. <a  className={styles.red} target="_blank" href="https://wa.me/917907247909">Get Help</a></span>
                 </div>
             </div>
         </div>

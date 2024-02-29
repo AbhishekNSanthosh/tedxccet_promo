@@ -31,6 +31,7 @@ export default function page() {
                 <span className={styles.desc}>
                     TEDxCCET Volunteer Registration Form
                 </span>
+                <span className={styles.note}>Note: Submit the form only once, duplicate entries will result in rejection :)</span>
                 <Link href="/reg-form">
                     <button href="/reg-form" className={styles.btn}>
                         Proceed

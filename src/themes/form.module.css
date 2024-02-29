@@ -6,6 +6,7 @@
     width: 100vw;
     padding: 2rem 5vw 15vh;
     gap: 7vh;
+    position: relative;
 }
 
 .head {
@@ -152,4 +153,19 @@
 .error {
     font-weight: 500;
     color: red;
+}
+
+.note{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 1rem;
+}
+
+
+.red{
+    color: red;
+    font-weight: 600;
 }
