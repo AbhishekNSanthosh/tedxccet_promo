@@ -63,7 +63,9 @@ const Navbar = () => {
         <div className={styles.drawer}>
           {navItems && navItems.map((item, index) => (
             <div className={styles.navItem} key={index}>
-              <a href={item.link}>
+              <a href={item.link} onClick={() => {
+                setDrawerOpen(false)
+              }}>
                 <span className={styles.nav}>{item?.title}</span>
               </a>
             </div>

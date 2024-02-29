@@ -77,8 +77,7 @@ export default function page() {
             localStorage.setItem("status", "submitted")
             setTimeout(() => {
                 router.push('/')
-            }, 500);
-            setLoading(false)
+            });
             console.log("Data sent successfully!", response.data);
         } catch (error) {
             setLoading(false)
@@ -135,9 +134,16 @@ export default function page() {
 
                 <div className={styles.item}>
                     <span className={styles.label}>Semester</span>
-                    <input onChange={(e) => {
+                    {/* <input type="text"  placeholder="Enter your semester" /> */}
+                    <select placeholder="Semester" className={styles.short} onChange={(e) => {
                         setSemester(e.target.value)
-                    }} type="text" className={styles.short} placeholder="Enter your semester" />
+                    }} id="semester" value={semester}>
+                        <option value="">Select your semester</option>
+                        <option value="S2">S2</option>
+                        <option value="S4">S4</option>
+                        <option value="S6">S6</option>
+                        <option value="S8">S8</option>
+                    </select>
                 </div>
 
                 <div className={styles.item}>
@@ -599,7 +605,7 @@ export default function page() {
                                 handleCheckboxChange(e.target.value)
                             }}
                         />
-                        8. Communications and Editorial Team
+                        8. Communications and Editorial Team &nbsp;(Content team)
                     </div>
                     <div className={styles.radioitem}>
                         <input
