@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import styles from '../../themes/form.module.css'
 import axios from 'axios'
 import toast from 'react-hot-toast';
+import { BeatLoader } from 'react-spinners'
 
 export default function page() {
     const router = useRouter();
@@ -28,6 +29,7 @@ export default function page() {
     const [terms, setTerms] = useState("");
     const [howDidYouCome, setHowDidYouCome] = useState("");
 
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
 
@@ -52,6 +54,7 @@ export default function page() {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
         try {
             console.log("Form submitted");
 
@@ -75,8 +78,10 @@ export default function page() {
             setTimeout(() => {
                 router.push('/')
             }, 500);
+            setLoading(false)
             console.log("Data sent successfully!", response.data);
         } catch (error) {
+            setLoading(false)
             console.error("Error sending data:", error);
         }
     };
@@ -654,7 +659,7 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Prioritize the choice according to the number. (eg: reception, curator, budget management = 11,1,6)</span>
-                    <input type="text" className={styles.long} placeholder="Arrange your priority" onChange={(e) => {
+                    <input type="number" className={styles.long} placeholder="Arrange your priority" onChange={(e) => {
                         setPriority(e.target.value)
                     }} />
                 </div>
@@ -699,15 +704,16 @@ export default function page() {
             </div>
             <div className={styles.row}>
                 <div className={styles.item}>
-                    <button onClick={(e) => {
+                    <button disabled={loading} onClick={(e) => {
                         handleCheck(e)
-                    }} className={styles.submit}>Submit</button>
+                    }} className={styles.submit}> {loading ?
+                        <BeatLoader color="#fff" /> : "Submit"}</button>
                 </div>
             </div>
 
             <div className={styles.note}>
                 <div className={styles.item}>
-                    <span className={styles.help}>For any technical assistance. <a  className={styles.red} target="_blank" href="https://wa.me/917907247909">Get Help</a></span>
+                    <span className={styles.help}>For any technical assistance. <a className={styles.red} target="_blank" href="https://wa.me/917907247909">Get Help</a></span>
                 </div>
             </div>
         </div>
