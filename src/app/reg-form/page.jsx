@@ -665,7 +665,7 @@ export default function page() {
             <div className={styles.row}>
                 <div className={styles.item}>
                     <span className={styles.label}>Prioritize the choice according to the number. (eg: reception, curator, budget management = 11,1,6)</span>
-                    <input type="number" className={styles.long} placeholder="Arrange your priority" onChange={(e) => {
+                    <input type="number" className={styles.long} placeholder="Arrange your priority" inputMode="numeric" pattern="[0-9]*" onChange={(e) => {
                         setPriority(e.target.value)
                     }} />
                 </div>
