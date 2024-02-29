@@ -719,7 +719,8 @@ export default function page() {
 
             <div className={styles.note}>
                 <div className={styles.item}>
-                    <span className={styles.help}>For any technical assistance. <a className={styles.red} target="_blank" href="https://wa.me/917907247909">Get Help</a></span>
+                    <span className={styles.help}>For any technical assistance. <a className={styles.red} target="_blank" href={`https://wa.me/917907247909?text=${encodeURIComponent("Hello Abhishek, I'm facing issues while submitting the form.")}`}
+                    >Get Help</a></span>
                 </div>
             </div>
         </div>
